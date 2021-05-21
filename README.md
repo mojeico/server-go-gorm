@@ -1,17 +1,22 @@
 # server-go-gorm
 
-
-
 post - http://localhost:8080/videos
 
 {
-    "title":"video vitle",
-    "description" : "video description",vrgr
-    "url":"http://url.test",
-    "author": {
-        "first_name": "TestName",
-        "last_name": "TestLastName",
-        "age":123,
-        "email": "test.mail@gmail.com"
-    }
-}
+"title":"video vitle",
+"description" : "video description",vrgr
+"url":"http://url.test",
+"author": {
+"first_name": "TestName",
+"last_name": "TestLastName",
+"age":123,
+"email": "test.mail@gmail.com"
+} }
+
+
+Docker run
+-
+
+- docker build -t my-go-app .
+- docker images
+- docker run --rm -d --name my-web-go-app -p 8080:8080 my-go-app
