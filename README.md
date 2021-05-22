@@ -16,7 +16,12 @@ post - http://localhost:8080/videos
 
 Docker run
 -
-
-- docker build -t my-go-app .
+- docker run --rm -d --name dev-postgres  -e POSTGRES_PASSWORD=postgres -p 5432:5432  arm64v8/postgres
+- docker build -t my-golang-app .
 - docker images
-- docker run --rm -d --name my-web-go-app -p 8080:8080 my-go-app
+- docker volume create web-golang-volume
+- docker run --rm -d --name my-web-golang-app -p 8080:8080 -v web:/app/dockerVolume my-golang-app
+
+
+
+

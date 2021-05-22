@@ -6,11 +6,9 @@ RUN go get -u github.com/lib/pq
 
 
 RUN mkdir /app
-
-ADD . /app
-
 WORKDIR /app
 
+ADD .. /app
 RUN go build -o main .
 
 
