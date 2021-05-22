@@ -14,7 +14,7 @@ post - http://localhost:8080/videos
 } }
 
 
-Docker run
+Docker run command or run docker-compose.yaml
 -
 - docker run --rm -d --name dev-postgres  -e POSTGRES_PASSWORD=postgres -p 5432:5432  arm64v8/postgres
 - docker build -t my-golang-app .
