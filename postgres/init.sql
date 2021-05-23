@@ -20,7 +20,7 @@ SET row_security = off;
 -- Name: test; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE test WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.UTF-8';
+-- CREATE DATABASE test WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.UTF-8';
 
 
 ALTER DATABASE test OWNER TO postgres;
@@ -42,7 +42,7 @@ SET row_security = off;
 -- Name: test; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
-CREATE SCHEMA test;
+CREATE SCHEMA IF NOT EXISTS test;
 
 
 ALTER SCHEMA test OWNER TO postgres;
@@ -59,7 +59,8 @@ CREATE SEQUENCE public.user_id
     CACHE 1;
 
 
-ALTER TABLE public.user_id OWNER TO postgres;
+ALTER TABLE public.user_id
+    OWNER TO postgres;
 
 SET default_tablespace = '';
 
@@ -69,16 +70,18 @@ SET default_table_access_method = heap;
 -- Name: people; Type: TABLE; Schema: test; Owner: postgres
 --
 
-CREATE TABLE test.people (
-                             id bigint NOT NULL,
-                             first_name text,
-                             last_name text,
-                             age integer,
-                             email text
+CREATE TABLE test.people
+(
+    id         bigint NOT NULL,
+    first_name text,
+    last_name  text,
+    age        integer,
+    email      text
 );
 
 
-ALTER TABLE test.people OWNER TO postgres;
+ALTER TABLE test.people
+    OWNER TO postgres;
 
 --
 -- Name: people_id_seq; Type: SEQUENCE; Schema: test; Owner: postgres
@@ -92,7 +95,8 @@ CREATE SEQUENCE test.people_id_seq
     CACHE 1;
 
 
-ALTER TABLE test.people_id_seq OWNER TO postgres;
+ALTER TABLE test.people_id_seq
+    OWNER TO postgres;
 
 --
 -- Name: people_id_seq; Type: SEQUENCE OWNED BY; Schema: test; Owner: postgres
@@ -105,18 +109,20 @@ ALTER SEQUENCE test.people_id_seq OWNED BY test.people.id;
 -- Name: videos; Type: TABLE; Schema: test; Owner: postgres
 --
 
-CREATE TABLE test.videos (
-                             id bigint NOT NULL,
-                             title text,
-                             description text,
-                             url text,
-                             person_id bigint,
-                             created_ad timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
-                             updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE test.videos
+(
+    id          bigint NOT NULL,
+    title       text,
+    description text,
+    url         text,
+    person_id   bigint,
+    created_ad  timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at  timestamp with time zone DEFAULT CURRENT_TIMESTAMP
 );
 
 
-ALTER TABLE test.videos OWNER TO postgres;
+ALTER TABLE test.videos
+    OWNER TO postgres;
 
 --
 -- Name: videos_id_seq; Type: SEQUENCE; Schema: test; Owner: postgres
@@ -130,7 +136,8 @@ CREATE SEQUENCE test.videos_id_seq
     CACHE 1;
 
 
-ALTER TABLE test.videos_id_seq OWNER TO postgres;
+ALTER TABLE test.videos_id_seq
+    OWNER TO postgres;
 
 --
 -- Name: videos_id_seq; Type: SEQUENCE OWNED BY; Schema: test; Owner: postgres
@@ -143,14 +150,16 @@ ALTER SEQUENCE test.videos_id_seq OWNED BY test.videos.id;
 -- Name: people id; Type: DEFAULT; Schema: test; Owner: postgres
 --
 
-ALTER TABLE ONLY test.people ALTER COLUMN id SET DEFAULT nextval('test.people_id_seq'::regclass);
+ALTER TABLE ONLY test.people
+    ALTER COLUMN id SET DEFAULT nextval('test.people_id_seq'::regclass);
 
 
 --
 -- Name: videos id; Type: DEFAULT; Schema: test; Owner: postgres
 --
 
-ALTER TABLE ONLY test.videos ALTER COLUMN id SET DEFAULT nextval('test.videos_id_seq'::regclass);
+ALTER TABLE ONLY test.videos
+    ALTER COLUMN id SET DEFAULT nextval('test.videos_id_seq'::regclass);
 
 
 --
