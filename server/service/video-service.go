@@ -14,7 +14,7 @@ type videoService struct {
 	videoRepository repository.VideoRepository
 }
 
-func New(repo repository.VideoRepository) VideoService {
+func NewVideoService(repo repository.VideoRepository) VideoService {
 	return &videoService{
 		videoRepository: repo,
 	}

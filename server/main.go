@@ -12,8 +12,8 @@ import (
 var (
 	loggingVideo    repository.VideoLoggingRepository = repository.NewVideoLoggingRepository()
 	videoRepository repository.VideoRepository        = repository.NewVideoRepository()
-	videoService    service.VideoService              = service.New(videoRepository)
-	videoController controller.VideoController        = controller.New(videoService)
+	videoService    service.VideoService              = service.NewVideoService(videoRepository)
+	videoController controller.VideoController        = controller.NewVideoController(videoService)
 )
 
 func main() {

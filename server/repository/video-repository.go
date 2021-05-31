@@ -19,7 +19,7 @@ type database struct {
 }
 
 func NewVideoRepository() VideoRepository {
-	db, err := gorm.Open("postgres", "host=database port=5432 user=postgres dbname=test  sslmode=disable password=postgres")
+	db, err := gorm.Open("postgres", "host=localhost port=5432 user=postgres dbname=test  sslmode=disable password=postgres")
 	if err != nil {
 		fmt.Println(err)
 	}
