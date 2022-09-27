@@ -38,7 +38,7 @@ jobs:
         with:
           push: false
           tags: user/app:latest
-          context: .
+          #context: .
           #cache-from: type=registry,ref=user/app:latest
           #cache-to: type=inline
 
