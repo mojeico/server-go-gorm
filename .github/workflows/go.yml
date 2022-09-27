@@ -9,7 +9,12 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest ]
+      
+
     steps:
     - uses: actions/checkout@v3
 
@@ -25,6 +30,7 @@ jobs:
       run: go test -v ./...
 
   docker:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
