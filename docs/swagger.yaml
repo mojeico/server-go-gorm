@@ -1,0 +1,4021 @@
+definitions:
+  models.Charges:
+    properties:
+      charge_date:
+        type: integer
+      company_name:
+        description: company driver owner
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      description:
+        type: string
+      driver_id:
+        type: integer
+      driver_name:
+        type: string
+      files:
+        description: files list (with possibility to open)
+        items:
+          type: string
+        type: array
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      order_id:
+        type: integer
+      rate:
+        description: +100 or -100
+        type: number
+      status:
+        type: string
+      type_deductions:
+        description: deductions(-) and earnings(+)
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - charge_date
+    - driver_id
+    - driver_name
+    - order_id
+    - rate
+    - type_deductions
+    type: object
+  models.Company:
+    properties:
+      address:
+        type: string
+      billing_address:
+        type: string
+      billing_email:
+        type: string
+      billing_method:
+        type: string
+      billing_type:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      createdAt:
+        type: string
+      deleted:
+        type: boolean
+      deletedAt:
+        type: string
+      fax_number:
+        type: string
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      legal_name:
+        type: string
+      mc_number:
+        type: integer
+      order_status:
+        items:
+          type: integer
+        type: array
+      phone_number:
+        type: string
+      status:
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - legal_name
+    type: object
+  models.Customer:
+    properties:
+      address:
+        type: string
+      billing_address:
+        type: string
+      billing_balance:
+        type: number
+      billing_credit_limit:
+        type: number
+      billing_email:
+        type: string
+      billing_method:
+        type: string
+      billing_total_balance:
+        type: number
+      billing_type:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      createdAt:
+        type: string
+      deleted:
+        type: boolean
+      deletedAt:
+        type: string
+      dot_number:
+        type: string
+      fax_number:
+        type: string
+      files_list:
+        items:
+          type: integer
+        type: array
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      legal_name:
+        type: string
+      mc_number:
+        type: integer
+      phone_number:
+        type: string
+      status:
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - legal_name
+    type: object
+  models.CustomerUpdateInput:
+    properties:
+      address:
+        type: string
+      billing_address:
+        type: string
+      billing_balance:
+        type: number
+      billing_credit_limit:
+        type: number
+      billing_email:
+        type: string
+      billing_method:
+        type: string
+      billing_total_balance:
+        type: number
+      billing_type:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      dot_number:
+        type: string
+      fax_number:
+        type: string
+      legal_name:
+        type: string
+      mc_number:
+        type: integer
+      phone_number:
+        type: string
+    type: object
+  models.Driver:
+    properties:
+      active:
+        type: boolean
+      address:
+        type: string
+      allow_checks:
+        type: boolean
+      birth_day:
+        type: integer
+      cdl_classification:
+        type: string
+      cdl_date:
+        type: integer
+      cdl_endorsements:
+        type: string
+      charges_list:
+        items:
+          type: integer
+        type: array
+      city:
+        type: string
+      company_id:
+        type: integer
+      country:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      eligible:
+        type: boolean
+      email:
+        type: string
+      emergency:
+        type: string
+      emergency_phone:
+        type: string
+      files_list:
+        items:
+          type: integer
+        type: array
+      first_name:
+        type: string
+      fuel_cards:
+        type: string
+      gender:
+        type: string
+      gross_pay:
+        type: boolean
+      hire_date:
+        type: integer
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      last_drug_test_date:
+        type: integer
+      last_name:
+        type: string
+      license_exp_date:
+        type: integer
+      license_number:
+        type: integer
+      medial_card:
+        type: integer
+      mvr_date:
+        type: integer
+      order_list:
+        items:
+          type: integer
+        type: array
+      pay_method:
+        type: string
+      pay_to:
+        description: pay to  company
+        type: string
+      pay_to_count:
+        type: string
+      pay_to_owner:
+        description: pay to driver
+        type: string
+      phone:
+        type: string
+      restrictions:
+        type: string
+      review_date:
+        type: integer
+      ssn:
+        type: string
+      state:
+        type: string
+      status:
+        type: string
+      tax_form:
+        type: string
+      termination_date:
+        type: integer
+      transponder:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - first_name
+    - last_name
+    type: object
+  models.DriverUpdateInput:
+    properties:
+      active:
+        type: boolean
+      address:
+        type: string
+      allow_checks:
+        type: boolean
+      birth_day:
+        type: integer
+      cdl_classification:
+        type: string
+      cdl_date:
+        type: integer
+      cdl_endorsements:
+        type: string
+      city:
+        type: string
+      company_id:
+        type: integer
+      country:
+        type: string
+      eligible:
+        type: boolean
+      email:
+        type: string
+      emergency:
+        type: string
+      emergency_phone:
+        type: string
+      first_name:
+        type: string
+      fuel_cards:
+        type: string
+      gender:
+        type: string
+      gross_pay:
+        type: boolean
+      hire_date:
+        type: integer
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      last_drug_test_date:
+        type: integer
+      last_name:
+        type: string
+      license_exp_date:
+        type: integer
+      license_number:
+        type: integer
+      medial_card:
+        type: integer
+      mvr_date:
+        type: integer
+      pay_method:
+        type: string
+      pay_to:
+        description: pay to  company
+        type: string
+      pay_to_count:
+        type: string
+      pay_to_owner:
+        description: pay to driver
+        type: string
+      phone:
+        type: string
+      restrictions:
+        type: string
+      review_date:
+        type: integer
+      ssn:
+        type: string
+      state:
+        type: string
+      status:
+        type: string
+      tax_form:
+        type: string
+      termination_date:
+        type: integer
+      transponder:
+        type: string
+      type:
+        type: string
+    required:
+    - first_name
+    - last_name
+    type: object
+  models.GroupUpdateInput:
+    properties:
+      name:
+        type: string
+      priveleges:
+        items:
+          type: string
+        type: array
+      users:
+        items:
+          type: integer
+        type: array
+    required:
+    - name
+    - priveleges
+    type: object
+  models.Groups:
+    properties:
+      company_id:
+        type: string
+      created:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      isDeleted:
+        type: boolean
+      name:
+        type: string
+      priveleges:
+        items:
+          type: string
+        type: array
+      status:
+        type: string
+      updated:
+        type: integer
+      updatedAt:
+        type: string
+      users:
+        items:
+          type: string
+        type: array
+    required:
+    - company_id
+    - name
+    - priveleges
+    type: object
+  models.Order:
+    properties:
+      billing_method:
+        type: string
+      billing_type:
+        type: string
+      bol_number:
+        type: string
+      broker_load_number:
+        type: string
+      charges_list:
+        items:
+          type: integer
+        type: array
+      commodity:
+        type: string
+      company_id:
+        type: integer
+      consignee:
+        description: company receiver
+        type: string
+      consignee_delivery_date_from:
+        type: integer
+      consignee_delivery_date_to:
+        type: integer
+      consignee_delivery_time_from:
+        type: integer
+      consignee_delivery_time_to:
+        type: integer
+      consignee_phone:
+        type: string
+      consignee_to_location:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      delivery_number:
+        type: string
+      driver_id:
+        type: integer
+      driver_name:
+        type: string
+      empty_miles:
+        type: number
+      equipment_type:
+        type: string
+      eta_or_free_dat:
+        type: integer
+      external_notes:
+        type: string
+      files_list:
+        items:
+          type: integer
+        type: array
+      gross_pay:
+        type: number
+      id:
+        type: integer
+      invoice_id:
+        type: integer
+      invoicing_company:
+        type: string
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      load_number:
+        type: string
+      loaded_miles:
+        type: number
+      ltl:
+        type: boolean
+      pallets:
+        type: integer
+      pickup_number:
+        type: string
+      pieces:
+        type: string
+      rate:
+        type: number
+      seal_number:
+        type: string
+      shipper:
+        description: company sender
+        type: string
+      shipper_from_location:
+        type: string
+      shipper_phone:
+        description: phone company sender
+        type: string
+      shipper_pick_up_data_from:
+        type: integer
+      shipper_pick_up_data_to:
+        type: integer
+      shipper_pick_up_time_from:
+        type: integer
+      shipper_pick_up_time_to:
+        type: integer
+      status:
+        type: string
+      temperature:
+        type: integer
+      total:
+        type: number
+      total_days:
+        type: integer
+      total_miles:
+        type: number
+      trailer_id:
+        type: integer
+      truck_id:
+        type: integer
+      updatedAt:
+        type: string
+      weight:
+        type: integer
+    required:
+    - billing_method
+    - billing_type
+    - invoicing_company
+    - load_number
+    - rate
+    type: object
+  models.Safety:
+    properties:
+      comments:
+        type: string
+      company_id:
+        type: integer
+      createdAt:
+        type: string
+      deleted:
+        type: boolean
+      deletedAt:
+        type: string
+      files_list:
+        items:
+          type: integer
+        type: array
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      safety_type:
+        description: reports permits registration
+        type: string
+      status:
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - safety_type
+    type: object
+  models.Settlement:
+    properties:
+      createdAt:
+        type: string
+      deduction:
+        type: number
+      deleted:
+        type: boolean
+      deletedAt:
+        type: string
+      driver_id:
+        type: integer
+      driver_name:
+        type: string
+      empty_miles:
+        type: integer
+      id:
+        type: integer
+      invoicing_company:
+        type: string
+      is_active:
+        type: boolean
+      loaded_miles:
+        type: integer
+      order_id:
+        type: integer
+      reimbursement:
+        type: number
+      settlement_date:
+        type: integer
+      status:
+        type: string
+      total:
+        type: number
+      total_miles:
+        type: integer
+      updatedAt:
+        type: string
+    required:
+    - driver_id
+    - order_id
+    type: object
+  models.SettlementUpdateInput:
+    properties:
+      deduction:
+        type: number
+      driver_id:
+        type: integer
+      driver_name:
+        type: string
+      empty_miles:
+        type: integer
+      invoicing_company:
+        type: string
+      loaded_miles:
+        type: integer
+      order_id:
+        type: integer
+      reimbursement:
+        type: number
+      settlement_date:
+        type: integer
+      total:
+        type: number
+      total_miles:
+        description: SettlementJoin   []SettlementOrderAndChargesJoin `gorm:"foreignKey:ID"`
+        type: integer
+    required:
+    - driver_id
+    - order_id
+    type: object
+  models.Trailer:
+    properties:
+      air_ride:
+        type: boolean
+      cargo_height:
+        type: integer
+      cargo_length:
+        type: integer
+      cargo_width:
+        type: integer
+      comments:
+        items:
+          $ref: '#/definitions/models.TrailerComment'
+        type: array
+      company_id:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      dock_high:
+        type: boolean
+      door_height:
+        type: integer
+      door_type:
+        items:
+          type: string
+        type: array
+      door_weight_capacity:
+        type: integer
+      door_width:
+        type: integer
+      driver_id:
+        type: integer
+      expiration:
+        type: integer
+      files_list:
+        items:
+          type: integer
+        type: array
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      lift_gate:
+        type: boolean
+      load_bars:
+        type: boolean
+      location:
+        description: create crud for location ---
+        type: string
+      make:
+        type: string
+      name:
+        type: string
+      owner_name:
+        description: pay to  company -> companyOwner
+        type: string
+      pallet_jacks:
+        type: boolean
+      plate:
+        type: string
+      plated_trailer:
+        type: boolean
+      purchase_date:
+        type: integer
+      state:
+        type: string
+      status:
+        type: string
+      straps:
+        type: boolean
+      trailer_type:
+        items:
+          type: string
+        type: array
+      unit_number:
+        type: string
+      updatedAt:
+        type: string
+      vin_number:
+        type: string
+      weight:
+        type: integer
+      year:
+        type: integer
+    required:
+    - name
+    - owner_name
+    - plate
+    - state
+    - trailer_type
+    - unit_number
+    - vin_number
+    type: object
+  models.TrailerComment:
+    properties:
+      comment:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      trailer_id:
+        type: integer
+      updatedAt:
+        type: string
+    type: object
+  models.TrailerInputUpdate:
+    properties:
+      air_ride:
+        type: boolean
+      cargo_height:
+        type: integer
+      cargo_length:
+        type: integer
+      cargo_width:
+        type: integer
+      company_id:
+        type: integer
+      dock_high:
+        type: boolean
+      door_height:
+        type: integer
+      door_type:
+        items:
+          type: string
+        type: array
+      door_weight_capacity:
+        type: integer
+      door_width:
+        type: integer
+      driver_id:
+        type: integer
+      expiration:
+        type: integer
+      lift_gate:
+        type: boolean
+      load_bars:
+        type: boolean
+      location:
+        description: create crud for location ---
+        type: string
+      make:
+        type: string
+      name:
+        type: string
+      owner_name:
+        description: pay to  company -> companyOwner
+        type: string
+      pallet_jacks:
+        type: boolean
+      plate:
+        type: string
+      plated_trailer:
+        type: boolean
+      purchase_date:
+        type: integer
+      state:
+        type: string
+      straps:
+        type: boolean
+      trailer_type:
+        items:
+          type: string
+        type: array
+      unit_number:
+        type: string
+      vin_number:
+        type: string
+      weight:
+        type: integer
+      year:
+        type: integer
+    required:
+    - name
+    - owner_name
+    - plate
+    - state
+    - trailer_type
+    - unit_number
+    - vin_number
+    type: object
+  models.Truck:
+    properties:
+      assign_date:
+        type: integer
+      co_driver_name:
+        type: string
+      company_id:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      driver_name:
+        type: string
+      files_list:
+        items:
+          type: integer
+        type: array
+      fuel_card:
+        type: string
+      fuel_type:
+        type: string
+      id:
+        type: integer
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      liability_eff_date:
+        type: integer
+      liability_exp_date:
+        type: integer
+      location:
+        description: create crud for location ---
+        type: string
+      location_date:
+        type: integer
+      make:
+        type: string
+      model:
+        type: string
+      mpg:
+        type: number
+      plate:
+        type: integer
+      plate_expiration:
+        type: integer
+      state:
+        type: string
+      status:
+        type: string
+      trailer_name:
+        type: string
+      transporter:
+        type: string
+      unit_number:
+        type: string
+      updatedAt:
+        type: string
+      vin_number:
+        type: string
+      year:
+        type: integer
+    required:
+    - fuel_type
+    - location
+    - location_date
+    - make
+    - plate
+    - state
+    type: object
+  models.TruckUpdateInput:
+    properties:
+      assign_date:
+        type: integer
+      co_driver_name:
+        type: string
+      company_id:
+        type: integer
+      driver_name:
+        type: string
+      fuel_card:
+        type: string
+      fuel_type:
+        type: string
+      liability_eff_date:
+        type: integer
+      liability_exp_date:
+        type: integer
+      location:
+        description: create crud for location ---
+        type: string
+      location_date:
+        type: integer
+      make:
+        type: string
+      model:
+        type: string
+      mpg:
+        type: number
+      plate:
+        type: integer
+      plate_expiration:
+        type: integer
+      state:
+        type: string
+      trailer_name:
+        type: string
+      transporter:
+        type: string
+      unit_number:
+        type: string
+      vin_number:
+        type: string
+      year:
+        type: integer
+    required:
+    - fuel_type
+    - location
+    - location_date
+    - make
+    - plate
+    - state
+    type: object
+  models.UpdateUserInput:
+    properties:
+      auth_status:
+        type: boolean
+      company_id:
+        type: integer
+      email:
+        type: string
+      groups:
+        items:
+          type: integer
+        type: array
+      ip_address:
+        type: string
+      is_active:
+        type: boolean
+      last_connection:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      user_agent:
+        type: string
+      username:
+        type: string
+    required:
+    - email
+    - password
+    - username
+    type: object
+  models.User:
+    properties:
+      auth_status:
+        type: boolean
+      company_id:
+        type: integer
+      createdAt:
+        type: string
+      deletedAt:
+        type: string
+      email:
+        type: string
+      groups:
+        items:
+          type: integer
+        type: array
+      id:
+        type: integer
+      ip_address:
+        type: string
+      is_active:
+        type: boolean
+      is_deleted:
+        type: boolean
+      last_connection:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      role:
+        type: string
+      status:
+        description: activated - confirm - deleted  -- login only for confirm
+        type: string
+      updatedAt:
+        type: string
+      user_agent:
+        type: string
+      username:
+        type: string
+    required:
+    - email
+    - password
+    - username
+    type: object
+  response.Response:
+    properties:
+      data:
+        type: object
+      errors:
+        type: object
+      message:
+        type: string
+      status:
+        type: boolean
+    type: object
+info:
+  contact: {}
+paths:
+  /charges:
+    get:
+      consumes:
+      - application/json
+      description: Get all charges
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit offset
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all charges
+      tags:
+      - charges
+    post:
+      consumes:
+      - application/json
+      description: Create charges
+      parameters:
+      - description: Charges
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/models.Charges'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create charges
+      tags:
+      - charges
+  /charges/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete charges
+      parameters:
+      - description: change Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Delete charges
+      tags:
+      - charges
+    patch:
+      consumes:
+      - application/json
+      description: Update charges
+      parameters:
+      - description: charge Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update charges
+      tags:
+      - charges
+  /charges/charge/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get charge By Id
+      parameters:
+      - description: charge Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get charge By Id
+      tags:
+      - charges
+  /charges/order/:orderId:
+    get:
+      consumes:
+      - application/json
+      description: Get all charges by OrderId
+      parameters:
+      - description: order orderId
+        in: path
+        name: orderId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all charges by OrderId
+      tags:
+      - charges
+  /charges/report:
+    get:
+      consumes:
+      - application/json
+      description: Create all chargers report
+      parameters:
+      - description: text search by text
+        in: query
+        name: text
+        type: string
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create all chargers report
+      tags:
+      - charges
+  /charges/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all charges by search
+      parameters:
+      - description: text search by text
+        in: query
+        name: text
+        type: string
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all charges by search
+      tags:
+      - charges
+  /company:
+    get:
+      consumes:
+      - application/json
+      description: Get All companies
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all companies
+      tags:
+      - company
+    post:
+      consumes:
+      - application/json
+      description: Create company
+      parameters:
+      - description: Company
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/models.Company'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create company
+      tags:
+      - company
+  /company/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Company by Id
+      parameters:
+      - description: Company Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Delete Company by Id
+      tags:
+      - company
+    get:
+      consumes:
+      - application/json
+      description: Get company By Id
+      parameters:
+      - description: Company Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get company By Id
+      tags:
+      - company
+    patch:
+      consumes:
+      - application/json
+      description: Update Company by Id
+      parameters:
+      - description: Company Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Company by Id
+      tags:
+      - company
+  /company/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all companies by search
+      parameters:
+      - description: text search by text
+        in: query
+        name: text
+        type: string
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all companies by search
+      tags:
+      - company
+  /customer:
+    get:
+      consumes:
+      - application/json
+      description: Update Customer Info
+      parameters:
+      - description: Customer Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Customer
+      tags:
+      - customer
+  /customer/:
+    post:
+      consumes:
+      - application/json
+      description: Create Customer Info
+      parameters:
+      - description: Customer
+        in: body
+        name: customer
+        required: true
+        schema:
+          $ref: '#/definitions/models.Customer'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create Customer
+      tags:
+      - customer
+  /customer/:customerId:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Customer Info
+      parameters:
+      - description: Customer Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Delete Customer
+      tags:
+      - customer
+  /customer/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get Customer By Id saved in PostgreSQL
+      parameters:
+      - description: Customer Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Customer By Id
+      tags:
+      - truck
+  /customers/:customerId:
+    put:
+      consumes:
+      - application/json
+      description: Update Customer Info
+      parameters:
+      - description: Customer Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: CustomerUpdateInput
+        in: body
+        name: truck
+        required: true
+        schema:
+          $ref: '#/definitions/models.CustomerUpdateInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Customer
+      tags:
+      - customer
+  /customers/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Customers by search
+      parameters:
+      - description: text search by text
+        in: query
+        name: text
+        type: string
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Customers by search
+      tags:
+      - customer
+  /driver:
+    get:
+      consumes:
+      - application/json
+      description: Get data about all Drivers
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Drivers
+      tags:
+      - driver
+  /driver/:
+    post:
+      consumes:
+      - application/json
+      description: Send Driver data to create
+      parameters:
+      - description: Driver
+        in: body
+        name: driver
+        required: true
+        schema:
+          $ref: '#/definitions/models.Driver'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create Driver
+      tags:
+      - driver
+  /driver/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Send Driver data to create
+      parameters:
+      - description: Driver id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create Driver
+      tags:
+      - driver
+    patch:
+      consumes:
+      - application/json
+      description: Update Driver data
+      parameters:
+      - description: Driver id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Driver Update Input
+        in: body
+        name: driver
+        required: true
+        schema:
+          $ref: '#/definitions/models.DriverUpdateInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Driver
+      tags:
+      - driver
+  /drivers/:companyId:
+    get:
+      consumes:
+      - application/json
+      description: Get data about all Drivers
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Drivers by company id
+      tags:
+      - driver
+  /drivers/driver/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get all Driver data by id
+      parameters:
+      - description: Driver id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Driver by id
+      tags:
+      - driver
+  /drivers/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Drivers by search
+      parameters:
+      - description: text search by text
+        in: query
+        name: text
+        type: string
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Drivers by search
+      tags:
+      - driver
+  /group:
+    get:
+      consumes:
+      - application/json
+      description: Get all Groups data
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Groups
+      tags:
+      - group
+    post:
+      consumes:
+      - application/json
+      description: Send Group data to create
+      parameters:
+      - description: Groups
+        in: body
+        name: group
+        required: true
+        schema:
+          $ref: '#/definitions/models.Groups'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create Group
+      tags:
+      - group
+  /group/:companyId:
+    get:
+      consumes:
+      - application/json
+      description: Get all Groups data by company
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      - description: Company id
+        in: path
+        name: companyId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Groups by company
+      tags:
+      - group
+  /group/:groupId:
+    delete:
+      consumes:
+      - application/json
+      description: Sent Group id to delete it
+      parameters:
+      - description: Group id
+        in: path
+        name: groupId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Delete Group
+      tags:
+      - group
+    post:
+      consumes:
+      - application/json
+      description: Sent Group data to upgrade it
+      parameters:
+      - description: GroupUpdateInput
+        in: body
+        name: group
+        required: true
+        schema:
+          $ref: '#/definitions/models.GroupUpdateInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Group
+      tags:
+      - group
+  /group/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Groups by search
+      parameters:
+      - description: text search by text
+        in: query
+        name: text
+        type: string
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Groups by search
+      tags:
+      - group
+  /groups/group/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get Group data by id
+      parameters:
+      - description: Group id
+        in: path
+        name: groupId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Group by id
+      tags:
+      - group
+  /invoicing:
+    get:
+      consumes:
+      - application/json
+      description: Get all invoices
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all invoices
+      tags:
+      - invoice
+  /invoicing/:id:
+    delete:
+      consumes:
+      - application/json
+      description: delete invoice
+      parameters:
+      - description: invoice Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: delete invoice
+      tags:
+      - invoice
+    get:
+      consumes:
+      - application/json
+      description: Get invoice by id
+      parameters:
+      - description: invoice Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get invoice by id
+      tags:
+      - invoice
+    patch:
+      consumes:
+      - application/json
+      description: update invoice
+      parameters:
+      - description: invoice Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: update invoice
+      tags:
+      - invoice
+  /invoicing/report:
+    get:
+      consumes:
+      - application/json
+      description: Create all invoices report
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create all invoices report
+      tags:
+      - invoice
+  /invoicing/report/pdf/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get invoice in PDF if order is completed
+      parameters:
+      - description: settlement id
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get invoice in PDF
+      tags:
+      - invoice
+  /invoicing/search:
+    get:
+      consumes:
+      - application/json
+      description: Search and filter invoices
+      parameters:
+      - description: text search by text
+        in: query
+        name: text
+        type: string
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Search and filter invoices
+      tags:
+      - invoice
+  /notifications:
+    get:
+      consumes:
+      - application/json
+      description: Get all notifications
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all notifications
+      tags:
+      - Notification
+  /notifications/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get Notification By Id
+      parameters:
+      - description: Notifications id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Notification By Id
+      tags:
+      - Notification
+  /notifications/:userId:
+    get:
+      consumes:
+      - application/json
+      description: Get All Notifications By UserId
+      parameters:
+      - description: Notifications id
+        in: path
+        name: userId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get All Notifications By UserId
+      tags:
+      - Notification
+  /order:
+    post:
+      consumes:
+      - application/json
+      description: Send Order data to create
+      parameters:
+      - description: Order
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/models.Order'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create order
+      tags:
+      - order
+  /orders:
+    get:
+      consumes:
+      - application/json
+      description: Get All Orders
+      parameters:
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Orders
+      tags:
+      - order
+  /orders/:companyId:
+    get:
+      consumes:
+      - application/json
+      description: Get all orders data
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit offset
+        in: query
+        name: limit
+        type: string
+      - description: Order
+        in: body
+        name: Order
+        required: true
+        schema:
+          $ref: '#/definitions/models.Order'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Orders by Company id
+      tags:
+      - order
+  /orders/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Order by Id
+      parameters:
+      - description: Safety Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Delete Order by Id
+      tags:
+      - safety
+    patch:
+      consumes:
+      - application/json
+      description: Update Order by Id
+      parameters:
+      - description: Order Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Order by Id
+      tags:
+      - safety
+  /orders/completed/:id:
+    post:
+      consumes:
+      - application/json
+      description: Mark order completed by id
+      parameters:
+      - description: order id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Mark order completed by id
+      tags:
+      - safety
+  /orders/invoiced/:id:
+    post:
+      consumes:
+      - application/json
+      description: Make order invoiced by id
+      parameters:
+      - description: order id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Make order invoiced by id
+      tags:
+      - safety
+  /orders/order/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get Order By Id
+      parameters:
+      - description: order Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Order By Id
+      tags:
+      - order
+  /orders/order/driver/:driverId:
+    get:
+      consumes:
+      - application/json
+      description: Get Order By driver Id
+      parameters:
+      - description: order driverId
+        in: path
+        name: driverId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Order By driver Id
+      tags:
+      - order
+  /orders/order/trailer/:trailerId:
+    get:
+      consumes:
+      - application/json
+      description: Get Order By trailer Id
+      parameters:
+      - description: order trailerId
+        in: path
+        name: trailerId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Order By trailer Id
+      tags:
+      - order
+  /orders/order/truck/:truckId:
+    get:
+      consumes:
+      - application/json
+      description: Get Order By truck Id
+      parameters:
+      - description: order truckId
+        in: path
+        name: truckId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Order By truck Id
+      tags:
+      - order
+  /orders/report:
+    get:
+      consumes:
+      - application/json
+      description: Create all orders report
+      parameters:
+      - description: object search by text
+        in: query
+        name: text
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create all orders report
+      tags:
+      - order
+  /orders/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Orders by search
+      parameters:
+      - description: object search by text
+        in: query
+        name: text
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Orders by search
+      tags:
+      - order
+  /safeties/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get Safety By Id
+      parameters:
+      - description: Safety Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: company id
+        in: query
+        name: companyId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Safety By Id
+      tags:
+      - safety
+  /safety:
+    get:
+      consumes:
+      - application/json
+      description: Get All Safeties
+      parameters:
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Safeties
+      tags:
+      - safety
+    post:
+      consumes:
+      - application/json
+      description: Send Safety data to create
+      parameters:
+      - description: Safety
+        in: body
+        name: safety
+        required: true
+        schema:
+          $ref: '#/definitions/models.Safety'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create Safety
+      tags:
+      - safety
+  /safety/:companyId:
+    get:
+      consumes:
+      - application/json
+      description: Get All Safeties by company id
+      parameters:
+      - description: Company Id
+        in: path
+        name: companyId
+        required: true
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Safeties by company id
+      tags:
+      - safety
+  /safety/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Safety Info
+      parameters:
+      - description: Safety Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: company id
+        in: query
+        name: companyId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Safety
+      tags:
+      - safety
+    get:
+      consumes:
+      - application/json
+      description: Get All Safeties by company id
+      parameters:
+      - description: Safety Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: company id
+        in: query
+        name: companyId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Safeties by company id
+      tags:
+      - safety
+  /safety/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Safeties by search
+      parameters:
+      - description: object search by text
+        in: query
+        name: text
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Safeties by search
+      tags:
+      - safety
+  /settlement:
+    get:
+      consumes:
+      - application/json
+      description: Get all Settlements data
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      - description: Settlement
+        in: body
+        name: settlement
+        required: true
+        schema:
+          $ref: '#/definitions/models.Settlement'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Settlements
+      tags:
+      - settlement
+  /settlement/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Settlement by id
+      parameters:
+      - description: Settlement id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Delete Settlement
+      tags:
+      - settlement
+    get:
+      consumes:
+      - application/json
+      description: Bet Settlement data by id
+      parameters:
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      - description: Settlement id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Settlement by id
+      tags:
+      - settlement
+    post:
+      consumes:
+      - application/json
+      description: Sent Settlement data to create
+      parameters:
+      - description: SettlementUpdateInput
+        in: body
+        name: settlement
+        required: true
+        schema:
+          $ref: '#/definitions/models.SettlementUpdateInput'
+      - description: Settlement id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Settlement
+      tags:
+      - settlement
+  /settlement/:orderId:
+    post:
+      consumes:
+      - application/json
+      description: Create settlement based on orderId
+      parameters:
+      - description: order orderId
+        in: path
+        name: orderId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create Settlement
+      tags:
+      - settlement
+  /settlement/:settlementId:
+    get:
+      consumes:
+      - application/json
+      description: Get all charges by settlement Id
+      parameters:
+      - description: settlement settlementId
+        in: path
+        name: settlementId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all charges by settlement Id
+      tags:
+      - charges
+  /settlement/report/pdf/:id:
+    get:
+      consumes:
+      - application/json
+      description: Search and filter invoices if order is completed
+      parameters:
+      - description: settlement id
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Search and filter invoices
+      tags:
+      - settlement
+  /settlement/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Settlements by search
+      parameters:
+      - description: object search by text
+        in: query
+        name: text
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Settlements by search
+      tags:
+      - settlement
+  /trailer/:
+    get:
+      consumes:
+      - application/json
+      description: Update Trailer Info
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Trailer
+      tags:
+      - trailer
+    post:
+      consumes:
+      - application/json
+      description: Send Trailer data to create
+      parameters:
+      - description: Trailer
+        in: body
+        name: trailer
+        required: true
+        schema:
+          $ref: '#/definitions/models.Trailer'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create Trailer
+      tags:
+      - trailers
+  /trailer/:trailerId:
+    delete:
+      consumes:
+      - application/json
+      description: Update Trailer Info
+      parameters:
+      - description: Trailer Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Trailer
+      tags:
+      - trailer
+    put:
+      consumes:
+      - application/json
+      description: Update Trailer Info
+      parameters:
+      - description: Trailer Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: TrailerUpdateInput
+        in: body
+        name: truck
+        required: true
+        schema:
+          $ref: '#/definitions/models.TrailerInputUpdate'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Trailer
+      tags:
+      - trailer
+  /trailer/company/:companyId:
+    get:
+      consumes:
+      - application/json
+      description: Get Trailer By Id saved in PostgreSQL
+      parameters:
+      - description: Company Id
+        in: path
+        name: companyId
+        required: true
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Trailer By Id
+      tags:
+      - trailer
+  /trailer/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Trailers by search
+      parameters:
+      - description: object search by text
+        in: query
+        name: text
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Trailers by search
+      tags:
+      - trailer
+  /trailers/comment/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get trailer comments by trailer iD
+      parameters:
+      - description: trailer id
+        in: path
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get trailer comments by trailer iD
+      tags:
+      - trailer_comment
+  /trailers/comment/:trailerId:
+    post:
+      consumes:
+      - application/json
+      description: Create company
+      parameters:
+      - description: TrailerComment
+        in: body
+        name: trailer
+        required: true
+        schema:
+          $ref: '#/definitions/models.TrailerComment'
+      - description: trailer id
+        in: path
+        name: trailerId
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create company
+      tags:
+      - trailer_comment
+  /trailers/trailer/:trailerId:
+    get:
+      consumes:
+      - application/json
+      description: Get Trailer By Id saved in PostgreSQL
+      parameters:
+      - description: Trailer Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Trailer By Id
+      tags:
+      - trailer
+  /trucks/:
+    get:
+      consumes:
+      - application/json
+      description: Get all Trucks data
+      parameters:
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      - description: Company Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Trucks
+      tags:
+      - truck
+    post:
+      consumes:
+      - application/json
+      description: Send Truck data to create
+      parameters:
+      - description: Truck
+        in: body
+        name: truck
+        required: true
+        schema:
+          $ref: '#/definitions/models.Truck'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create Truck
+      tags:
+      - trucks
+  /trucks/:companyId:
+    get:
+      consumes:
+      - application/json
+      description: Get all User data
+      parameters:
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      - description: Truck
+        in: body
+        name: User
+        required: true
+        schema:
+          $ref: '#/definitions/models.Truck'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Truck by Company id
+      tags:
+      - truck
+  /trucks/:truckId:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Truck Info
+      parameters:
+      - description: Truck Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Delete Truck
+      tags:
+      - truck
+    put:
+      consumes:
+      - application/json
+      description: Update Truck Info
+      parameters:
+      - description: Truck Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: TruckUpdateInput
+        in: body
+        name: truck
+        required: true
+        schema:
+          $ref: '#/definitions/models.TruckUpdateInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update Truck
+      tags:
+      - truck
+  /trucks/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Trucks by search
+      parameters:
+      - description: object search by text
+        in: query
+        name: text
+        type: string
+      - description: 'offset search by offset '
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Trucks by search
+      tags:
+      - truck
+  /trucks/truck/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get Truck data by id
+      parameters:
+      - description: truck id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get Truck by id
+      tags:
+      - truck
+  /user:
+    post:
+      consumes:
+      - application/json
+      description: Send User data to create
+      parameters:
+      - description: User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Create User
+      tags:
+      - user
+  /user/:id:
+    delete:
+      consumes:
+      - application/json
+      description: Delete User by id
+      parameters:
+      - description: User id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Delete User
+      tags:
+      - user
+    post:
+      consumes:
+      - application/json
+      description: Send User data to create
+      parameters:
+      - description: UpdateUserInput
+        in: body
+        name: UpdateUserInput
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateUserInput'
+      - description: User id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Update User
+      tags:
+      - user
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: Get all User data
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      - description: User
+        in: body
+        name: User
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Users
+      tags:
+      - user
+  /users/:companyId:
+    get:
+      consumes:
+      - application/json
+      description: Get all User data
+      parameters:
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      - description: User
+        in: body
+        name: User
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Users by Company id
+      tags:
+      - user
+  /users/search:
+    get:
+      consumes:
+      - application/json
+      description: Get all Users by search
+      parameters:
+      - description: text search by text
+        in: query
+        name: text
+        type: string
+      - description: offset search by offset
+        in: query
+        name: offset
+        type: string
+      - description: limit search by limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get all Users by search
+      tags:
+      - user
+  /users/user/:id:
+    get:
+      consumes:
+      - application/json
+      description: Get User data by id
+      parameters:
+      - description: User id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Get User by id
+      tags:
+      - user
+swagger: "2.0"

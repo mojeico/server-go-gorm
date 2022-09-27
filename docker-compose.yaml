@@ -1,27 +1,69 @@
-version: "3"
+version: "3.8"
 
 services:
 
-  database:
-    image: postgres
-    restart: always
-    env_file: .env
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - postgres-data:/var/lib/postgresql/data
-
   redis:
     image: redis
-    restart: always
+    container_name: redis
+    networks:
+      - trucktrace
+    volumes:
+      - /data/db/redis
     ports:
       - "6379:6379"
-    volumes:
-      - redis-data:/var/lib/redis
-
-volumes:
-  postgres-data:
-  redis-data:
 
 
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    networks:
+      - trucktrace
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: trucktrace
+      POSTGRES_PASSWORD: trucktrace
+     #PGDATA: /data/db/postgres
+
+  nats:
+    image: nats
+    container_name: nats
+    ports:
+      - "4222:4222"
+    networks:
+      - trucktrace
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.2
+    container_name: elasticsearch
+    networks:
+      - trucktrace
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      discovery.type: single-node
+      #ES_JAVA_OPTS: -Xms2G -Xmx2G
+      xpack.security.enabled: "true"
+      ELASTIC_PASSWORD: trucktrace
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.13.2
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    networks:
+      - trucktrace
+    ports:
+      - "5601:5601"
+    environment:
+      SERVER_NAME: kibana
+      ELASTICSEARCH_USERNAME: elastic
+      ELASTICSEARCH_PASSWORD: trucktrace
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+
+
+networks:
+  trucktrace:
+    name: trucktrace

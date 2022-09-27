@@ -1,0 +1,28 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-api-deployments
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: user-api
+  template:
+    metadata:
+      labels:
+        app: user-api
+    spec:
+      containers:
+        - name: user-api-container
+          image: 745263491396.dkr.ecr.us-east-1.amazonaws.com/trucktrace-user-api:cors
+            #env:
+            #- name: AUTH_ADDRESS
+            #value:  10.105.45.35
+          #  value: auth-service.default  #domain name of service
+          ports:
+            - containerPort: 8081
+      imagePullSecrets:
+        - name: regcred
+
+
