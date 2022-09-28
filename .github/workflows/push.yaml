@@ -19,5 +19,8 @@ jobs:
       with:
         go-version: 1.16
     - name: Run LInters 
+      env: 
+        LINTER: true 
       run: |
         echo "Linters was run "
+        echo $LINTER
