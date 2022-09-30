@@ -2,11 +2,11 @@ FROM golang:1.16 AS builder
 
 WORKDIR /app
 
-COPY go.mod ./
-
-RUN go mod download
+#COPY go.mod go.sum ./
 
 COPY . .
+
+RUN go mod download
 
 
 # MAC OS M1 APPLE  -----RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -a -installsuffix cgo -o main ./cmd/app/main.go
